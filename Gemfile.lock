@@ -14,6 +14,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    diff-lcs (1.4.4)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.14.0)
@@ -21,10 +22,22 @@ GEM
     hashdiff (0.3.7)
     hashie (4.1.0)
     json (2.3.1)
-    minitest (5.11.3)
     multipart-post (2.1.1)
     public_suffix (3.0.2)
     rake (12.3.1)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.0)
     safe_yaml (1.0.4)
     vcr (4.0.0)
     webmock (3.4.2)
@@ -38,10 +51,10 @@ PLATFORMS
 DEPENDENCIES
   bundler
   forte-payments!
-  minitest
   rake
+  rspec
   vcr
   webmock
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
