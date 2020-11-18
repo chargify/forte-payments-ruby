@@ -9,14 +9,14 @@ module FortePayments
     include FortePayments::Client::Settlement
     include FortePayments::Client::Transaction
 
-    attr_reader :api_key
+    attr_reader :access_id
     attr_reader :secure_key
     attr_reader :organization_id
     attr_reader :location_id
 
     def initialize(options={})
       @live        = options[:mode] == :production || (ENV['FORTE_LIVE'] && ENV['FORTE_LIVE'] != '')
-      @api_key     = options[:api_key] || ENV['FORTE_API_KEY']
+      @access_id   = options[:access_id] || ENV['FORTE_ACCESS_ID']
       @secure_key  = options[:secure_key] || ENV['FORTE_SECURE_KEY']
       @organization_id = options[:organization_id] || ENV['FORTE_ORGANIZATION_ID']
       @location_id = options[:location_id] || ENV['FORTE_LOCATION_ID']
@@ -89,7 +89,7 @@ module FortePayments
       }
 
       Faraday.new(connection_options) do |connection|
-        connection.basic_auth(api_key, secure_key)
+        connection.basic_auth(access_id, secure_key)
         connection.request  :json
         connection.response :json
         connection.response :logger, nil, { bodies: true } if @debug

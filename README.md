@@ -15,7 +15,7 @@ Add this line to your application's Gemfile:
 ### Usage
 ````ruby
   client = FortePayments::Client.new(
-    api_key:     api_key,
+    access_key:  access_id,
     secure_key:  secure_key,
     account_id:  account_id,
     location_id: location_id
